@@ -38,14 +38,14 @@ AmbedkarGPT-Intern-Task/
 
 ### 1️⃣ Clone the repository
 ```bash
-git clone https://github.com/<your-username>/AmbedkarGPT-Intern-Task
+git clone https://github.com/manishraje28/AmbedkarGPT-Intern-Task
 cd AmbedkarGPT-Intern-Task
 ```
 
 ### 2️⃣ Create a virtual environment
 ```bash
 python -m venv venv
-.env\Scriptsctivate       # Windows
+.venv\Scripts\activate       # Windows
 ```
 
 ### 3️⃣ Install dependencies
@@ -68,11 +68,11 @@ ollama pull mistral
 
 If Mistral fails to download:
 ```bash
-ollama pull mixtral
+ollama pull mistral
 ```
 Then update in main.py:
 ```python
-model = Ollama(model="mixtral")
+model = Ollama(model="mistral")
 ```
 
 ---
@@ -84,10 +84,20 @@ python src/main.py
 
 Sample run:
 ```
-> Why does Ambedkar criticize social reformers?
+> What does the text say is the real remedy for the caste problem?
 
-Response:
-Because they address the branches instead of the roots, and the true root is belief in the authority of the shastras.
+Answer:
+In the provided context, the "belief in the sanctity of the shastras" is considered the real enemy.
+
+> What is considered the real enemy in the text?
+
+Answer:
+ In the provided context, the "belief in the sanctity of the shastras" is considered the real enemy.
+
+> Why does the speaker view the shastras as the foundation of caste?
+
+Answer :
+The speaker views the shastras as the foundation of caste because, according to the given context, he believes that as long as people believe in the sanctity of the shastras, they will never be able to get rid of caste. He suggests that the problem of caste is rooted in the authority of the shastras and that the work of social reform necessitates destroying this belief in their sanctity.
 ```
 
 ---
