@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.env
+
+# ChromaDB files
+chroma_db/
+*.bin
+*.sqlite3
+
+# IDE
+.vscode/
+.idea/
