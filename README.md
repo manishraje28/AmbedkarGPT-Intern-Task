@@ -1,39 +1,24 @@
-🧠 AmbedkarGPT – RAG-Based Q&A System
+# 🚀 AmbedkarGPT – RAG-Based Q&A System
+### _AI Intern Assignment Submission_
 
-A Submission for the AI Intern Assignment
+---
 
-AmbedkarGPT is a fully offline Retrieval-Augmented Generation (RAG) system that answers questions only from the provided text of Dr. B. R. Ambedkar’s speech.
-It uses:
+## 📘 Overview
+AmbedkarGPT is a fully offline **Retrieval-Augmented Generation (RAG)** system designed to answer questions **strictly from the provided speech** by Dr. B. R. Ambedkar.
 
-LangChain (latest runnables API)
+This project uses:
+- **LangChain (Runnables API)**
+- **ChromaDB (local vector store)**
+- **HuggingFace MiniLM-L6-v2 embeddings**
+- **Ollama with Mistral 7B LLM**
+- **Python 3.8+**
 
-ChromaDB (local vector store)
+No API keys, no cloud usage, and fully local inference.
 
-HuggingFace sentence-transformers/all-MiniLM-L6-v2
+---
 
-Ollama + Mistral 7B
-
-Python 3.8+
-
-No API keys, no paid services, no external dependencies — everything runs locally.
-
-📌 Features
-
-Fully offline RAG pipeline
-
-Local semantic search using ChromaDB
-
-Embeddings powered by MiniLM-L6-v2
-
-Context-aware answers using Mistral (via Ollama)
-
-Simple, clean CLI interface for Q&A
-
-Well-structured, production-ready Python code
-
-100% compliant with assignment instructions
-
-📁 Project Structure
+## 📂 Project Structure
+```
 AmbedkarGPT-Intern-Task/
 │
 ├── data/
@@ -45,88 +30,90 @@ AmbedkarGPT-Intern-Task/
 ├── .gitignore
 ├── requirements.txt
 └── README.md
+```
 
-⚙️ Installation & Setup
-1️⃣ Clone the repository
+---
+
+## 🛠️ Installation & Setup
+
+### 1️⃣ Clone the repository
+```bash
 git clone https://github.com/<your-username>/AmbedkarGPT-Intern-Task
 cd AmbedkarGPT-Intern-Task
+```
 
-2️⃣ Create & activate virtual environment
+### 2️⃣ Create a virtual environment
+```bash
 python -m venv venv
-.\venv\Scripts\activate       # Windows
+.env\Scriptsctivate       # Windows
+```
 
-3️⃣ Install dependencies
+### 3️⃣ Install dependencies
+```bash
 pip install -r requirements.txt
+```
 
-🤖 Install Ollama & Download Mistral 7B
-Install Ollama
+---
 
-Download from:
+## 🤖 Install Ollama & Pull Mistral 7B Model
+
+### Install Ollama  
+Download from:  
 https://ollama.com/download
 
-Pull the model
+### Pull the Mistral model  
+```bash
 ollama pull mistral
+```
 
-
-If mistral fails due to network timeout, pull a smaller fallback:
-
+If Mistral fails to download:
+```bash
 ollama pull mixtral
-
-
+```
 Then update in main.py:
-
+```python
 model = Ollama(model="mixtral")
+```
 
-▶️ Running the Application
+---
 
-Start the CLI chatbot:
-
+## ▶️ Running the Application
+```bash
 python src/main.py
+```
 
+Sample run:
+```
+> Why does Ambedkar criticize social reformers?
 
-Example interaction:
+Response:
+Because they address the branches instead of the roots, and the true root is belief in the authority of the shastras.
+```
 
-> What does Ambedkar identify as the root cause of caste?
+---
 
---- Answer ---
-Ambedkar argues that the root cause of caste is the belief in the sanctity and infallibility of the shastras.
+## 🧬 How the RAG Pipeline Works
 
-🧬 How the RAG Pipeline Works
+1. Load `speech.txt`  
+2. Split into ~300-character chunks  
+3. Generate embeddings (MiniLM-L6-v2)  
+4. Store embeddings in ChromaDB  
+5. Convert user query into embedding  
+6. Retrieve top 3 similar chunks  
+7. Format a prompt using retrieved context  
+8. Generate final answer using Mistral (via Ollama)
 
-The system follows a modern RAG architecture:
+---
 
-Load the input text (speech.txt)
+## 📦 Deliverables Included
+- `main.py` (fully commented)
+- `requirements.txt`
+- `speech.txt`
+- `README.md`
+- Complete public GitHub repository as requested
 
-Split into manageable chunks (300 chars + overlap)
+---
 
-Generate embeddings using MiniLM
+## 📜 License
+This project is created solely for the AI intern assignment evaluation.
 
-Store vectors locally using ChromaDB
-
-Convert user query → embedding
-
-Retrieve top 3 most relevant chunks
-
-Insert context + question into a prompt template
-
-Send prompt to Mistral via Ollama
-
-Return a grounded, accurate answer
-
-This ensures zero hallucination and completely local inference.
-
-🗂 Deliverables (as per assignment)
-
-✔ main.py — fully commented, clean Python code
-
-✔ requirements.txt — contains all dependencies
-
-✔ speech.txt — provided speech file
-
-✔ README.md — detailed setup + technical explanation
-
-✔ Public GitHub repository named AmbedkarGPT-Intern-Task
-
-📜 License
-
-This project is created solely for the intern assignment and educational purposes.
