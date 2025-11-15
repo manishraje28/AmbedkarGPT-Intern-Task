@@ -1,4 +1,4 @@
-# 🚀 AmbedkarGPT – RAG-Based Q&A System
+# AmbedkarGPT – RAG-Based Q&A System
 ### _AI Intern Assignment Submission_
 
 ---
