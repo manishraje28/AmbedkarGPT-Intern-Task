@@ -65,11 +65,6 @@ https://ollama.com/download
 ```bash
 ollama pull mistral
 ```
-
-If Mistral fails to download:
-```bash
-ollama pull mistral
-```
 Then update in main.py:
 ```python
 model = Ollama(model="mistral")
