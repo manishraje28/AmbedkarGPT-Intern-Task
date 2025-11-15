@@ -1,108 +1,132 @@
-AmbedkarGPT – Intern Task (RAG Prototype)
+🧠 AmbedkarGPT – RAG-Based Q&A System
 
-A fully offline, local Retrieval-Augmented Generation (RAG) system built using:
+A Submission for the AI Intern Assignment
+
+AmbedkarGPT is a fully offline Retrieval-Augmented Generation (RAG) system that answers questions only from the provided text of Dr. B. R. Ambedkar’s speech.
+It uses:
 
 LangChain (latest runnables API)
 
 ChromaDB (local vector store)
 
-HuggingFace Embeddings (MiniLM-L6-v2)
+HuggingFace sentence-transformers/all-MiniLM-L6-v2
 
-Ollama (Mistral 7B)
+Ollama + Mistral 7B
 
 Python 3.8+
 
-This model answers questions based only on Dr. Ambedkar’s speech (speech.txt) using custom retrieval.
-No API keys, no paid services, no internet required.
+No API keys, no paid services, no external dependencies — everything runs locally.
 
-🚀 Features
+📌 Features
 
-✔ Local RAG pipeline (private, free)
-✔ Text loading, chunking & embeddings
-✔ Semantic search with ChromaDB
-✔ Context retrieval (top 3 chunks)
-✔ Mistral LLM via Ollama
-✔ Well-commented, clean Python code
-✔ CLI question-answering interface
+Fully offline RAG pipeline
 
-🛠️ Setup Instructions
+Local semantic search using ChromaDB
+
+Embeddings powered by MiniLM-L6-v2
+
+Context-aware answers using Mistral (via Ollama)
+
+Simple, clean CLI interface for Q&A
+
+Well-structured, production-ready Python code
+
+100% compliant with assignment instructions
+
+📁 Project Structure
+AmbedkarGPT-Intern-Task/
+│
+├── data/
+│   └── speech.txt
+│
+├── src/
+│   └── main.py
+│
+├── .gitignore
+├── requirements.txt
+└── README.md
+
+⚙️ Installation & Setup
 1️⃣ Clone the repository
 git clone https://github.com/<your-username>/AmbedkarGPT-Intern-Task
 cd AmbedkarGPT-Intern-Task
 
-2️⃣ Create a virtual environment
+2️⃣ Create & activate virtual environment
 python -m venv venv
-.\venv\Scripts\activate    # Windows
+.\venv\Scripts\activate       # Windows
 
 3️⃣ Install dependencies
 pip install -r requirements.txt
 
-🤖 Install Ollama & Mistral
-Install Ollama:
+🤖 Install Ollama & Download Mistral 7B
+Install Ollama
 
+Download from:
 https://ollama.com/download
 
-Pull Mistral 7B:
+Pull the model
 ollama pull mistral
 
 
-If mistral fails to download:
+If mistral fails due to network timeout, pull a smaller fallback:
 
-ollama pull mistral
+ollama pull mixtral
 
 
-Then update:
+Then update in main.py:
 
-model = Ollama(model="mistral")
+model = Ollama(model="mixtral")
 
-▶️ Run the Application
+▶️ Running the Application
+
+Start the CLI chatbot:
+
 python src/main.py
 
 
 Example interaction:
 
-> What does the text say is the real remedy for the caste problem?
+> What does Ambedkar identify as the root cause of caste?
 
 --- Answer ---
- The text suggests that the real remedy for the caste problem is to destroy the belief in the sanctity of the shastras.
-----------------
+Ambedkar argues that the root cause of caste is the belief in the sanctity and infallibility of the shastras.
 
-> What is considered the real enemy in the text?
+🧬 How the RAG Pipeline Works
 
---- Answer ---
- In the provided context, the "belief in the sanctity of the shastras" is considered the real enemy.
-----------------
+The system follows a modern RAG architecture:
 
-> Why does the speaker view the shastras as the foundation of caste?
+Load the input text (speech.txt)
 
---- Answer ---
- The speaker views the shastras as the foundation of caste because, according to the given context, he believes that as long as people believe in the sanctity of the shastras, they will never be able to get rid of caste. He suggests that the problem of caste is rooted in the authority of the shastras and that the work of social reform necessitates destroying this belief in their sanctity.
-----------------
+Split into manageable chunks (300 chars + overlap)
 
-📚 Technical Architecture (RAG Flow)
+Generate embeddings using MiniLM
 
-1. Load speech.txt
+Store vectors locally using ChromaDB
 
-2. Split into 300-character chunks
+Convert user query → embedding
 
-3. Convert chunks → embeddings
+Retrieve top 3 most relevant chunks
 
-4. Store embeddings in ChromaDB
+Insert context + question into a prompt template
 
-5. Convert user query → embedding
+Send prompt to Mistral via Ollama
 
-6. Retrieve top 3 most similar chunks
+Return a grounded, accurate answer
 
-7. Insert context into prompt template
+This ensures zero hallucination and completely local inference.
 
-8. Send to Ollama Mistral for final answer
+🗂 Deliverables (as per assignment)
 
-📦 Deliverables (As Required)
+✔ main.py — fully commented, clean Python code
 
-✔ main.py (well-commented)
-✔ requirements.txt
-✔ speech.txt (/data/speech.txt)
-✔ README.md
-✔ Public GitHub repository: AmbedkarGPT-Intern-Task
+✔ requirements.txt — contains all dependencies
 
-🎉 Done!
+✔ speech.txt — provided speech file
+
+✔ README.md — detailed setup + technical explanation
+
+✔ Public GitHub repository named AmbedkarGPT-Intern-Task
+
+📜 License
+
+This project is created solely for the intern assignment and educational purposes.
