@@ -85,17 +85,14 @@ python src/main.py
 Sample run:
 ```
 > What does the text say is the real remedy for the caste problem?
-
 Answer:
 In the provided context, the "belief in the sanctity of the shastras" is considered the real enemy.
 
 > What is considered the real enemy in the text?
-
 Answer:
  In the provided context, the "belief in the sanctity of the shastras" is considered the real enemy.
 
 > Why does the speaker view the shastras as the foundation of caste?
-
 Answer :
 The speaker views the shastras as the foundation of caste because, according to the given context, he believes that as long as people believe in the sanctity of the shastras, they will never be able to get rid of caste. He suggests that the problem of caste is rooted in the authority of the shastras and that the work of social reform necessitates destroying this belief in their sanctity.
 ```
